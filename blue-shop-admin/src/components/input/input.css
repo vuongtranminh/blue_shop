@@ -1,0 +1,65 @@
+.text-field {
+  position: relative;
+  margin: 20px 0;
+}
+
+.text-field label {
+  display: inline-block;
+  font-weight: 600;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  background-color: var(--second-bg);
+  padding: 1px 5px;
+  font-size: 12px;
+  transform: translateY(-50%);
+  color: var(--txt-color);
+}
+
+.text-field input, .text-field textarea {
+  padding: 15px;
+  display: block;
+  width: 100%;
+  font-size: 14px;
+  border: 1px solid var(--main-color);
+  border-radius: 4px;
+  background-color: transparent;
+  color: var(--txt-color);
+}
+
+.input-file {
+  margin: 0 auto;
+  width: 100%;
+  height: 15rem;
+  position: relative;
+}
+
+.input-label {
+  border-radius: 8px;
+  border: 1px dotted var(--main-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.input-label .img-upload {
+  height: 100%;
+}
+
+.input-file input[type="file"] {
+  display: none;
+}
+
+.input-file .icon-upload {
+  color: var(--txt-color);
+  font-size: 3rem;
+  pointer-events: none;
+}

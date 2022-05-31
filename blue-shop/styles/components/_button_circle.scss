@@ -1,0 +1,10 @@
+.btn-circle {
+    width: 70px;
+    height: 70px;
+    background: $btn-main-bg;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    @include flex(center, center);
+}

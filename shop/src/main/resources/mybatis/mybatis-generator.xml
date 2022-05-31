@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+ "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!-- Configuration generator -->
+<generatorConfiguration>
+	<!-- Classpathentry: jdbc driver for database. You can choose your own driver 
+		location -->
+	<!-- <classPathEntry location="/Users/chenglulu/Documents/mysql-connector-java-8.0.17.jar"/> -->
+	<!-- One database, one con ≤ text, defaultmodeltype = "flat" big data field, 
+		regardless of table -->
+	<context id="MysqlTables" targetRuntime="MyBatis3"
+		defaultModelType="flat">
+		<!-- Automatically identify the database keywords. The default is false. 
+			If it is set to true, the database keywords will be identified according 
+			to the keyword list defined in sqlreservedwords; Generally, the default value 
+			is reserved. When the database keyword (Java keyword) is encountered, use 
+			columnoverride to override -->
+		<property name="autoDelimitKeywords" value="true" />
+		<!-- Encoding of generated java file -->
+		<property name="javaFileEncoding" value="utf-8" />
+		<!-- Beginingdelimiter and endingdelimiter: indicates the symbols used 
+			to mark database object names. For example, Oracle is double quotation marks, 
+			and MySQL is' back quotation marks' by default; -->
+		<property name="beginningDelimiter" value="`" />
+		<property name="endingDelimiter" value="`" />
+		<!-- Format java code -->
+		<property name="javaFormatter"
+			value="org.mybatis.generator.api.dom.DefaultJavaFormatter" />
+		<!-- Format XML code -->
+		<property name="xmlFormatter"
+			value="org.mybatis.generator.api.dom.DefaultXmlFormatter" />
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+		<!-- Comment -->
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+			<!-- Cancel comment -->
+			<property name="suppressDate" value="false" /> <!-- Generate comment generation timestamp -->
+		</commentGenerator>
+		<!-- JDBC connection -->
+		<jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/blue_shop?serverTimezone=UTC"
+			userId="root" password="TranMinhVuong@10052000">
+			<property name="nullCatalogMeansCurrent" value="true" />
+		</jdbcConnection>
+		<!-- Type conversion -->
+		<javaTypeResolver>
+			<!-- Use BigDecimal, false to automatically convert the following types 
+				(long, integer, short, etc.) -->
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		<!-- Generate entity class addressPo -->
+		<javaModelGenerator
+			targetPackage="com.blue.shop.mybatis.entity"
+			targetProject="shop\src\main\java">
+			<!-- Whether to allow subpackages, whether to use schema as the suffix 
+				of package -->
+			<property name="enableSubPackages" value="false" />
+			<!-- Do you want to add a constructor to modal <property name="constructorBased" 
+				value="true"/> -->
+			<!-- Remove the space before and after the value returned from the database -->
+			<property name="trimStrings" value="true" />
+			<!-- To establish whether a modal object is immutable, that is, the generated 
+				modal object does not have a setter method, only a construction method -->
+			<property name="immutable" value="false" />
+		</javaModelGenerator>
+		<!-- Generate map.xml file storage addressPo -->
+		<sqlMapGenerator targetPackage="mybatis.mapper"
+			targetProject="shop\src\main\resources">
+			<property name="enableSubPackages" value="false" />
+		</sqlMapGenerator>
+		<!-- Generate interface Dao -->
+		<javaClientGenerator
+			targetPackage="com.blue.shop.mybatis.dao"
+			targetProject="shop\src\main\java" type="XMLMAPPER">
+			<property name="enableSubPackages" value="false" />
+		</javaClientGenerator>
+		<!-- There can be multiple tables. Each table in the database can write 
+			a table. Tablename indicates the database table to be matched. You can also 
+			use% wildcard in the tablename attribute to match all database tables. Only 
+			the matching table will automatically generate a file. The corresponding 
+			configuration indicates whether to generate the corresponding interface -->
+		<table tableName="orderPo" schema="root" domainObjectName="Order"
+			enableCountByExample="true" enableUpdateByExample="true"
+			enableDeleteByExample="true" enableSelectByExample="true"
+			selectByExampleQueryId="true" enableSelectByPrimaryKey="true"
+			enableUpdateByPrimaryKey="true" enableDeleteByPrimaryKey="true">
+		</table>
+	</context>
+</generatorConfiguration>

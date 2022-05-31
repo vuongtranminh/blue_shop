@@ -1,0 +1,36 @@
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid $main-bg;
+    padding: 2px;
+    @include flex(center, center);
+    box-shadow: $box-shadow;
+    background: $main-color;
+
+    &__img {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        border: 2px solid $main-bg;
+        background-position: center !important;
+        background-size: cover !important;
+    }
+}
+
+.dropdown {
+    &--avatar {
+        cursor: pointer;
+        .dropdown {
+            &__list {
+                right: 0;
+            }
+
+            &__item {
+                white-space: nowrap;
+                font-size: 1.5rem;
+            }
+        }
+    }
+}

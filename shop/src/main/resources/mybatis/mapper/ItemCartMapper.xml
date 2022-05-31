@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blue.shop.mybatis.dao.ItemCartMapper">
+  <resultMap id="BaseResultMap" type="com.blue.shop.mybatis.entity.ItemCartPo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="quantity" jdbcType="INTEGER" property="quantity" />
+    <result column="variant_id" jdbcType="BIGINT" property="variantId" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.blue.shop.payload.response.ItemCartVo">
+    <result column="item_name" jdbcType="VARCHAR" property="itemName" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="image" jdbcType="VARCHAR" property="image" />
+    <result column="color" jdbcType="VARCHAR" property="color" />
+    <result column="size" jdbcType="VARCHAR" property="size" />
+      <result column="product_id" jdbcType="VARCHAR" property="productId" />
+    <result column="quantity_available" jdbcType="INTEGER" property="quantityAvailable" />
+    <result column="is_deleted_variant" jdbcType="TINYINT" property="isDeletedVariant" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, quantity, variant_id
+  </sql>
+  <sql id="Blob_Column_List">
+    item_name, price, image, color, `size`, product_id, quantity_available, is_deleted_variant
+  </sql>
+<!--   <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, user_id, quantity, variant_id, `checked`, created_at, updated_at
+  </sql>
+  <select id="selectByExample" parameterType="com.blue.shop.mybatis.entity.ItemCartExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from item_cart
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      orderPo by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from item_cart
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from item_cart
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.blue.shop.mybatis.entity.ItemCartExample">
+    delete from item_cart
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.blue.shop.mybatis.entity.ItemCartPo">
+    insert into item_cart (id, user_id, quantity, 
+      variant_id, `checked`, created_at, 
+      updated_at)
+    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{quantity,jdbcType=INTEGER}, 
+      #{variantId,jdbcType=BIGINT}, #{checked,jdbcType=TINYINT}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.blue.shop.mybatis.entity.ItemCartPo">
+    insert into item_cart
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="quantity != null">
+        quantity,
+      </if>
+      <if test="variantId != null">
+        variant_id,
+      </if>
+      <if test="checked != null">
+        `checked`,
+      </if>
+      <if test="createdAt != null">
+        created_at,
+      </if>
+      <if test="updatedAt != null">
+        updated_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="quantity != null">
+        #{quantity,jdbcType=INTEGER},
+      </if>
+      <if test="variantId != null">
+        #{variantId,jdbcType=BIGINT},
+      </if>
+      <if test="checked != null">
+        #{checked,jdbcType=TINYINT},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null">
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.blue.shop.mybatis.entity.ItemCartExample" resultType="java.lang.Long">
+    select count(*) from item_cart
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update item_cart
+    <set>
+      <if test="row.id != null">
+        id = #{row.id,jdbcType=BIGINT},
+      </if>
+      <if test="row.userId != null">
+        user_id = #{row.userId,jdbcType=BIGINT},
+      </if>
+      <if test="row.quantity != null">
+        quantity = #{row.quantity,jdbcType=INTEGER},
+      </if>
+      <if test="row.variantId != null">
+        variant_id = #{row.variantId,jdbcType=BIGINT},
+      </if>
+      <if test="row.checked != null">
+        `checked` = #{row.checked,jdbcType=TINYINT},
+      </if>
+      <if test="row.createdAt != null">
+        created_at = #{row.createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="row.updatedAt != null">
+        updated_at = #{row.updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="example != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update item_cart
+    set id = #{row.id,jdbcType=BIGINT},
+      user_id = #{row.userId,jdbcType=BIGINT},
+      quantity = #{row.quantity,jdbcType=INTEGER},
+      variant_id = #{row.variantId,jdbcType=BIGINT},
+      `checked` = #{row.checked,jdbcType=TINYINT},
+      created_at = #{row.createdAt,jdbcType=TIMESTAMP},
+      updated_at = #{row.updatedAt,jdbcType=TIMESTAMP}
+    <if test="example != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.blue.shop.mybatis.entity.ItemCartPo">
+    update item_cart
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="quantity != null">
+        quantity = #{quantity,jdbcType=INTEGER},
+      </if>
+      <if test="variantId != null">
+        variant_id = #{variantId,jdbcType=BIGINT},
+      </if>
+      <if test="checked != null">
+        `checked` = #{checked,jdbcType=TINYINT},
+      </if>
+      <if test="createdAt != null">
+        created_at = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null">
+        updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.blue.shop.mybatis.entity.ItemCartPo">
+    update item_cart
+    set user_id = #{userId,jdbcType=BIGINT},
+      quantity = #{quantity,jdbcType=INTEGER},
+      variant_id = #{variantId,jdbcType=BIGINT},
+      `checked` = #{checked,jdbcType=TINYINT},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      updated_at = #{updatedAt,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update> -->
+  
+  <select id="selectAll" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from item_cart
+  </select>
+  <select id="selectById" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select item_cart.* , 
+	    variant.variant_name as item_name,
+	    variant.price,
+	    variant.image,
+	    variant.color,
+	    variant.size,
+	    variant.quantity as quantity_available,
+	    variant.is_deleted as is_deleted_variant
+	from item_cart
+	left join variant on item_cart.variant_id= variant.id
+	where item_cart.id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="pagination" parameterType="com.blue.shop.util.Pagination" resultMap="ResultMapWithBLOBs">
+    select item_cart.* , 
+	    variant.variant_name as item_name,
+	    variant.price,
+	    variant.image,
+	    variant.color,
+	    variant.size,
+	    variant.quantity as quantity_available,
+	    variant.is_deleted as is_deleted_variant
+	from item_cart
+	left join variant on item_cart.variant_id= variant.id
+	order by id desc
+    limit #{offset, jdbcType=BIGINT} ,#{limit,jdbcType=INTEGER}
+  </select>
+  <select id="countAll" resultType="java.lang.Long">
+    select count(*)
+    from item_cart
+  </select>
+  <insert id="insert" parameterType="com.blue.shop.mybatis.entity.ItemCartPo">
+    insert into item_cart (id, user_id, quantity, 
+      variant_id)
+    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{quantity,jdbcType=INTEGER}, 
+      #{variantId,jdbcType=BIGINT})
+  </insert>
+  <update id="updateById" parameterType="com.blue.shop.mybatis.entity.ItemCartPo">
+    update item_cart
+    <set>
+      <if test="quantity != null">
+        quantity = #{quantity,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectCartByUserId" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select item_cart.* , 
+	    variant.variant_name as item_name,
+	    variant.price,
+	    variant.image,
+	    variant.color,
+	    variant.size,
+        variant.product_id,
+	    variant.quantity as quantity_available,
+	    variant.is_deleted as is_deleted_variant
+	from item_cart
+	left join variant on item_cart.variant_id= variant.id
+	where user_id = #{userId,jdbcType=BIGINT}
+	order by id desc
+  </select>
+  <select id="countByUserId" resultType="java.lang.Long">
+    select count(*)
+    from item_cart
+    where user_id = #{userId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteById" parameterType="java.lang.Long">
+    delete from item_cart
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <select id="selectByUserIdAndVariantId" parameterType="map" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from item_cart
+    where user_id = #{userId,jdbcType=BIGINT} and variant_id = #{variantId,jdbcType=BIGINT}
+  </select>
+  <select id="totalItemCartByUserId" parameterType="java.lang.Long" resultType="java.lang.Long">
+    select sum(quantity)
+    from item_cart
+    where user_id = #{userId,jdbcType=BIGINT}
+  </select>
+    <delete id="deleteAll" parameterType="java.util.List">
+        delete from item_cart
+        where id in
+        <foreach collection="list" item="element" index="index" open="(" separator=","  close=")">
+            #{element,jdbcType=BIGINT}
+        </foreach>
+    </delete>
+</mapper>

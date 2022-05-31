@@ -1,0 +1,68 @@
+.checkout {
+  @include flex(flex-start, flex-start);
+  flex-direction: column-reverse;
+  margin-top: 20px;
+  padding: 0 10px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+
+  @include pc {
+    flex-direction: row;
+  }
+
+  &__list {
+    width: 100%;
+    margin-bottom: 10rem;
+
+    @include tablet {
+      margin-bottom: 12rem;
+    }
+
+    @include pc {
+      width: 60%;
+    }
+  }
+
+  &__box-info {
+    width: 100%;
+
+    @include pc {
+      width: 40%;
+      margin-right: 30px;
+      margin-top: 30px;
+      position: sticky;
+      top: calc(#{$header-shrink-height} + 20px);
+    }
+
+  }
+
+  &__address {
+    width: 100%;
+
+    &__link {
+      font-size: 1.5rem;
+      margin: 10px 0;
+    }
+  }
+
+  &__payment {
+    width: 100%;
+  }
+
+  &__code {
+    width: 100%;
+  }
+
+  &__note {
+    width: 100%;
+  }
+
+}
+
+.checkout-address-modal {
+  max-height: 50vh;
+  /* mobile viewport bug fix */
+  height: -webkit-fill-available;
+  overflow: hidden;
+  overflow-y: scroll;
+}

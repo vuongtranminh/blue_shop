@@ -1,0 +1,209 @@
+.profile {
+  width: 100%;
+
+  &__media {
+    position: relative;
+
+    &__cover {
+      width: 100%;
+      height: 200px;
+      background-position: center !important;
+      background-size: cover !important;
+      border-radius: 10px;
+      position: relative;
+
+      @include tablet {
+        height: 300px;
+      }
+
+      &__icon {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        background: $txt-second-color;
+
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 2px solid $main-bg;
+        @include flex(center, center);
+        cursor: pointer;
+
+        @include tablet {
+          width: 40px;
+          height: 40px;
+        }
+
+        img {
+          width: 20px;
+          height: 20px;
+
+          @include tablet {
+            width: 25px;
+            height: 25px;
+          }
+        }
+      }
+
+      input {
+        display: none;
+      }
+    }
+
+    &__avatar {
+      position: absolute;
+
+      width: 100px;
+      height: 100px;
+      border: 2px solid $main-bg;
+      padding: 2px;
+      border-radius: 50%;
+      background: $c-bright-turquoise;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%) translateY(20%);
+
+      @include tablet {
+        width: 200px;
+        height: 200px;
+        border-width: 4px;
+        padding: 4px;
+      }
+
+      &__img {
+        width: 92px;
+        height: 92px;
+        border: 2px solid $main-bg;
+        background-position: center !important;
+        background-size: cover !important;
+        border-radius: 50%;
+
+        @include tablet {
+          border-width: 4px;
+          width: 184px;
+          height: 184px;
+        }
+      }
+
+      &__icon {
+        position: absolute;
+        bottom: 15px;
+        right: 0;
+        background: $txt-second-color;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 2px solid $main-bg;
+        @include flex(center, center);
+        cursor: pointer;
+
+        @include tablet {
+          width: 40px;
+          height: 40px;
+        }
+
+        img {
+          width: 20px;
+          height: 20px;
+
+          @include tablet {
+            width: 25px;
+            height: 25px;
+          }
+        }
+      }
+
+      input {
+        display: none;
+      }
+
+    }
+  }
+
+  &__name {
+    @include flex(center, center);
+    flex-direction: column;
+
+    padding: 30px 0 10px 0;
+
+    @include tablet {
+      padding: 40px 0 10px 0;
+    }
+
+    &__input {
+      @include flex(center, center);
+
+      &--hidden {
+        width: auto;
+        display: inline-block;
+        overflow: hidden;
+        visibility: hidden;
+        white-space: nowrap;
+        height: 0;
+        pointer-events: none;
+      }
+
+      input {
+        font-size: 2.5rem;
+        padding: 5px 10px;
+        background-color: $main-bg;
+
+        &[disabled] {
+          -webkit-text-fill-color: $txt-main-color;
+          opacity: 1; /* required on iOS */
+        }
+
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus,
+        &:-webkit-autofill:active {
+          -webkit-box-shadow: 0 0 0 1000px $main-bg inset !important;
+        }
+
+      }
+
+      &.active {
+
+        input {
+          border: 1px solid $border-color;
+          border-radius: 5px;
+        }
+
+      }
+    }
+  }
+
+  &__gender {
+
+    &__text {
+      padding: 15px;
+      font-size: 14px;
+      white-space: nowrap;
+      width: 100%;
+    }
+
+    &__selected {
+      display: flex;
+      align-items: center;
+      box-shadow: $box-shadow;
+      border-radius: 5px;
+      padding: 15px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    &__list {
+      top: 55px;
+      width: 100%;
+      padding: 0 15px;
+    }
+  }
+
+  &__birth {
+
+    &__text {
+      padding: 15px;
+      font-size: 14px;
+    }
+  }
+}

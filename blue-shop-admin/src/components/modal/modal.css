@@ -1,0 +1,83 @@
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 101;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal__header {
+    font-weight: 600;
+}
+
+.modal__content {
+  background-color: var(--main-bg);
+  opacity: 0;
+  transform: translateY(200px);
+  transition: transform 0.6s ease;
+  border-radius: var(--border-radius);
+  padding: 10px;
+  max-height: 80%;
+}
+
+.modal__footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal__inner {
+    width: 100%;
+    padding: 10px;
+}
+
+.modal.active .modal__content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.modal__btn {
+    margin: 20px;
+}
+
+.modal__body {
+  padding: 0 10px;
+  margin: auto;
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 400px;
+}
+
+.modal__body::-webkit-scrollbar {
+  width: 10px;
+}
+
+.modal__body::-webkit-scrollbar-track {
+  background-color: #F5F5F5;
+}
+
+.modal__body::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+.modal__body::-webkit-scrollbar-thumb :hover {
+  background: #555;
+}
+
+.modal__input {
+  min-width: 45%;
+}

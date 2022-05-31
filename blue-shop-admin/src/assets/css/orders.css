@@ -1,0 +1,27 @@
+.order-card {
+    padding: 10px 20px;
+    width: 100%;
+    border-radius: 10px;
+    transition: all .3s ease;
+    margin: 10px 0;
+}
+
+.order-card__info {
+    font-size: 1.1rem;
+}
+
+.order-card__info span {
+    font-weight: 600;
+}
+
+.order-card__header {
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
+.order-card__body {
+    padding: 5px 0;
+}

@@ -1,0 +1,61 @@
+$main-bg: #fff;
+$main-color: #0072FF;
+
+$c-bright-turquoise: #00C6FF;
+$c-blue-ribbon: #0072FF;
+$gradient: linear-gradient(40deg, $c-bright-turquoise, $c-blue-ribbon);
+
+$txt-main-color: #000;
+$txt-second-color: #8d8d8d;
+$txt-white: #fff;
+$txt-danger: #dc3545;
+
+$btn-main-bg: #0072FF;
+$btn-main-color: #fff;
+
+$header-height: 170px;
+$header-tablet-height: 70px;
+$header-mobile-height: 40px;
+$header-shrink-height: 70px;
+
+$box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+$border-color: $c-blue-ribbon;
+$border-second-color: #8d8d8d;
+
+$colors: (
+    "blue": #4267b2,
+    "orange": #fbb96b,
+    "pink": #fe7e73,
+    "white": #fff,
+    "black": #000,
+    "main": $main-color,
+    "red": #ff0000,
+    "green": #00FF00,
+    "yellow": #FFFF00,
+);
+
+$gardient-colors: (
+    "blue": linear-gradient(40deg, $c-bright-turquoise, $c-blue-ribbon),
+    "orange": linear-gradient(40deg, #fd746c, #ff9068),
+    "pink": linear-gradient(40deg, #b24592, #f15f79),
+    "yellow": linear-gradient(40deg, #d1913c, #ffd194),
+    "red": linear-gradient(40deg, #7b4397, #dc2430),
+);
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+// $tablet-width: 600px;
+// $pc-width: 1024px;
+
+$tablet-width: 768px;
+$pc-width: 1200px;
+
+
+$numbers: (0, 1, 2, 3, 4, 5, 6, 7, 8);

@@ -1,0 +1,155 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  transition: height 0.3s ease;
+  height: $header-mobile-height;
+  box-shadow: $box-shadow;
+  background-color: $main-bg;
+
+  @include tablet {
+    height: $header-tablet-height;
+  }
+
+  @include pc {
+    height: $header-height;
+    box-shadow: none;
+    background-color: transparent;
+  }
+
+  .container {
+    height: 100%;
+  }
+
+  &.shrink {
+    background-color: $main-bg;
+    height: $header-mobile-height;
+    box-shadow: $box-shadow;
+    z-index: 100;
+
+    @include tablet {
+      height: $header-shrink-height;
+    }
+  }
+
+  &__logo {
+    @include flex(center, center);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    pointer-events: none;
+
+    img {
+      height: 28px;
+    }
+  }
+
+  &__menu {
+    @include flex(center, space-between);
+    height: 100%;
+    font-size: 1.5rem;
+
+    &__item ~ &__item {
+      margin-left: 10px;
+
+      @include tablet {
+        margin-left: 20px;
+      }
+
+      @include pc {
+        margin-left: 39px;
+      }
+    }
+
+    &__item.active {
+      font-weight: 600;
+    }
+
+    &__left,
+    &__right {
+      @include flex(center, center);
+      height: 100%;
+    }
+
+    &__right {
+      font-size: 1.5rem;
+
+      &__item {
+        @include flex(center, center);
+        position: relative;
+        margin-left: 10px;
+
+        @include pc {
+          margin-left: 0;
+        }
+
+      }
+
+      @include tablet {
+        font-size: 2.25rem;
+      }
+    }
+
+    &__left {
+      flex-direction: column;
+      background-color: $main-bg;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+      justify-content: flex-start;
+      padding-top: 30px;
+      transform: translateX(-100%);
+      transition: transform 0.5s ease;
+
+      &.active {
+        z-index: 99;
+        transform: translateX(0);
+      }
+
+      &__item ~ &__item {
+        margin-left: unset;
+        margin-top: 20px;
+      }
+
+      &__close {
+        display: block;
+        position: absolute;
+        left: 20px;
+        font-size: 2.5rem;
+      }
+
+      @include pc {
+        flex-direction: row;
+        transform: none;
+        background-color: transparent;
+        position: static;
+        width: auto;
+        height: auto;
+        padding-top: 0;
+
+        &__item ~ &__item {
+          margin-left: 39px;
+          margin-top: 0;
+        }
+
+        &__close {
+          display: none;
+        }
+      }
+    }
+
+    &__mobile-toggle {
+      display: block;
+      font-size: 2.5rem;
+
+      @include pc {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC
+ "-//mybatis.org//DTD Config 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<!-- Global mapper enable or disable caching. -->
+		<setting name="cacheEnabled" value="true" />
+		<!-- Globally enable or disable deferred loading -->
+		<setting name="lazyLoadingEnabled" value="true" />
+		<!-- Allow or disallow multiple result sets to be returned from a single 
+			statement -->
+		<setting name="multipleResultSetsEnabled" value="true" />
+		<!-- Use column labels instead of column names -->
+		<setting name="useColumnLabel" value="true" />
+		<!-- Allow JDBC to support generated keys -->
+		<setting name="useGeneratedKeys" value="false" />
+		<!-- Configure the default actuator -->
+		<setting name="defaultExecutorType" value="SIMPLE" />
+		<!-- Set timeout -->
+		<setting name="defaultStatementTimeout" value="60" />
+		<!-- Setting hump logo -->
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+	</settings>
+	<plugins>
+		<plugin interceptor="com.github.pagehelper.PageInterceptor" />
+	</plugins>
+	<!-- <mappers> -->
+	<!-- <package name="classpath:mybatis/mapper/*Mapper.xml"></package> -->
+	<!-- </mappers> -->
+</configuration>

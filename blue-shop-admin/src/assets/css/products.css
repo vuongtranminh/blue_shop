@@ -1,0 +1,34 @@
+.dropdown-category {
+  position: relative;
+  max-width: 40%;
+}
+
+.dropdown-category__selected {
+  padding: 15px;
+  display: block;
+  width: 100%;
+  font-size: 14px;
+  border: 1px solid var(--main-color);
+  border-radius: 4px;
+  background-color: transparent;
+  color: var(--txt-color);
+}
+
+.dropdown-category__list {
+  position: absolute;
+  padding: 10px;
+  border-radius: 4px;
+  transform: translateY(30%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 99;
+  background-color: var(--main-bg);
+  border: 1px solid var(--main-color);
+}
+
+.dropdown-category__list.active {
+  transform: translateY(0);
+  visibility: visible;
+  opacity: 1;
+}

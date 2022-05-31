@@ -1,0 +1,51 @@
+.address-card {
+    padding: 10px 20px;
+    width: 100%;
+    box-shadow: $box-shadow;
+    border-radius: 10px;
+    transition: all .3s ease;
+    margin: 10px 0;
+
+    &__info {
+        font-size: 1.1rem;
+
+        span {
+            font-weight: 600;
+        }
+    }
+
+    &:hover {
+        transform: scale(1.03);
+    }
+
+    &__button {
+        cursor: pointer;
+        color: $main-color;
+
+        &--danger {
+            color: $txt-danger;
+        }
+    }
+
+    &__header {
+        font-size: 1.2rem;
+        font-weight: 600;
+        @include flex(flex-end, space-between);
+        padding: 5px 0;
+        
+        img {
+            width: 2rem;
+            height: 2rem;
+            margin-right: 10px;
+        }
+    }
+    
+    &__body {
+        padding: 5px 0;
+    }
+
+    &__footer {
+        margin-top: 5px;
+        @include flex(center, flex-end);
+    }
+}

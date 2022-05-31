@@ -1,0 +1,50 @@
+.dropdown {
+  position: relative;
+  width: 100%;
+
+  &__selected {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    &__text {
+      white-space: nowrap;
+      max-width: 80%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &__icon {
+
+      img {
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+
+  &__list {
+    position: absolute;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: $box-shadow;
+    transform: translateY(30%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease;
+    z-index: 99;
+    background-color: $main-bg;
+
+    &.active {
+      transform: translateY(0);
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &__item {
+    padding: 10px;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,7 @@
+[
+    {
+        "route": "/login",
+        "icon": "bx bx-log-out-circle bx-rotate-180",
+        "content": "Đăng xuất"
+    }
+]

@@ -1,0 +1,24 @@
+.button {
+  padding: 10px 15px;
+  border-radius: 4px;
+  background-color: var(--main-color);
+  cursor: pointer;
+  font-weight: 500;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  transition: all 0.2s linear;
+  margin: 5px 0px;
+}
+
+.button--outline {
+    background-color: transparent;
+    border: 1px solid var(--main-color);
+}
+
+.button:hover {
+  transform: rotateY(-15deg);
+}

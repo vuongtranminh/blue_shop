@@ -1,0 +1,94 @@
+.input-group {
+
+  margin: 10px 0;
+
+  &--flex &__wrapper{
+    display: flex;
+    align-items: center;
+  }
+
+  &--flex &__label{
+    min-width: min-content;
+    white-space: nowrap;
+    margin-right: 10px;
+  }
+
+  &--flex &__inner{
+    input {
+      padding: 15px;
+    }
+  }
+
+  &--flex &__message{
+    margin-left: 50px;
+  }
+
+  &__label {
+    padding: 5px 0;
+  }
+
+  &--radius &__inner{
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: $box-shadow;
+
+    input {
+      padding: 15px;
+      box-shadow: none;
+    }
+  }
+
+  &__inner {
+
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    width: 100%;
+
+    img {
+      padding-left: 15px;
+    }
+
+    input, textarea {
+      padding: 15px 30px;
+      display: block;
+      width: 100%;
+      color: #999;
+      font-size: 14px;
+      user-select: auto;
+      box-shadow: $box-shadow;
+      border-radius: 5px;
+
+      /* Chrome, Safari, Edge, Opera */
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      &[type='number'] {
+        -moz-appearance: textfield;
+      }
+
+      &[disabled] {
+        -webkit-text-fill-color: $txt-main-color;
+        opacity: 1; /* required on iOS */
+
+        background-color: $main-bg;
+        user-select: none;
+        box-shadow: none;
+      }
+
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus,
+      &:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0px 1000px $main-bg inset;
+      }
+    }
+  }
+
+  &__message {
+    margin-top: 5px;
+  }
+}

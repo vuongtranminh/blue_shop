@@ -1,0 +1,26 @@
+.footer-mobile {
+    background-color: $main-bg;
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    box-shadow: $box-shadow;
+
+    @include pc {
+        display: none;
+    }
+
+    &__item {
+        @include flex(center, center);
+        flex-direction: column;
+        padding: 1rem 0;
+        font-size: 1.2rem;
+        font-weight: bold;
+
+        &__icon {
+            font-size: 2.4rem;
+        }
+    }
+}

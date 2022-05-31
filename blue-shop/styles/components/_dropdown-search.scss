@@ -1,0 +1,61 @@
+.dropdown-search {
+    position: relative;
+    width: 100%;
+
+    input {
+        padding: 15px 30px;
+        display: block;
+        width: 100%;
+        color: #999;
+        font-size: 14px;
+        user-select: auto;
+        box-shadow: $box-shadow;
+        border-radius: 5px;
+    }
+
+    &__list {
+        position: absolute;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: $box-shadow;
+        opacity: 0;
+        visibility: hidden;
+        transition: all .3s ease;
+        z-index: 99;
+        background-color: $main-bg;
+        max-height: 200px;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: #F5F5F5;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 5px;
+
+            &:hover {
+                background: #555;
+            }
+        }
+    
+        &.active {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+
+    &__item {
+        padding: 10px;
+        cursor: pointer;
+
+        &:hover {
+            box-shadow: $box-shadow;
+            background-color: $main-bg;
+        }
+    }
+}

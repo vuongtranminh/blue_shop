@@ -1,0 +1,23 @@
+.react-tabs {
+    &__tab {
+
+        width: 50%;
+        font-size: 1.2rem;
+        font-weight: 500;
+        border-width: 2px !important;
+
+        &--selected {
+            border-color: $c-bright-turquoise !important;
+            color: transparent !important;
+            background-image: $gradient !important;
+            -webkit-background-clip: text !important;
+        }
+
+        &-list {
+            border: 0 !important;
+            margin: 0 !important;
+        }
+    }
+
+    
+}
